@@ -5,10 +5,6 @@
    that the non-visual behavior of the widgets is correctly
    implemented.  *)
 
-(* We give you some unit tests that already pass (for the widgets that
-   we have already implemented) and some tests that will only pass
-   once you have completed tasks 1 and 5.  *)
-
 (* Create a 'dummy' event *)
 let gc = Gctx.top_level
 let click55 = Gctx.make_test_event Gctx.MouseDown (5,5)

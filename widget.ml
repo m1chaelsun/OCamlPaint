@@ -31,7 +31,7 @@ let space (p: Gctx.dimension) : widget =
 let border (w: widget) : widget =
   { repaint = (fun (g: Gctx.gctx) ->
       let (width, height) = w.size () in
-      let x = width + 3 in    (* not "+ 4" because we start at 0! *)
+      let x = width + 3 in    (* not "+ 4" because we start at 0 *)
       let y = height + 3 in
       Gctx.draw_line g (0,0) (x,0);
       Gctx.draw_line g (0,0) (0, y);
@@ -72,9 +72,7 @@ let hpair (w1:widget) (w2:widget) : widget = {
    }
 
 (** The vpair widget lays out two widgets vertically, aligned at their
-   left edges.
-
-   TODO: You will need to implement vpair in Task 1 *)
+   left edges. *)
 let vpair (w1: widget) (w2: widget) : widget = {
    repaint = (fun  (g:Gctx.gctx) -> w1.repaint g;
     let g = Gctx.translate g (0, snd (w1.size ())) in
@@ -88,16 +86,6 @@ let vpair (w1: widget) (w2: widget) : widget = {
           let (x2,y2) = w2.size () in (max x1 x2, y1 + y2))
    }
 
-(* TIP: the OCaml List module provides a function fold_right
-   (List.fold_right) that behaves like the "fold" function we've seen
-   on previous homeworks except that it takes its arguments in a
-   different order.
-
-   Also, if you look at the List interface, you will see that there is
-   a fold_left function. You may want to think about what this does,
-   and how it's different from the fold you're used to.  *)
-
-(* TODO: You will need to implement list_layout in Task 1 *)
 let list_layout (pair: widget -> widget -> widget)
          (ws: widget list) : widget =
   List.fold_right (fun a b -> pair a b) ws (space (0, 0))
@@ -235,8 +223,6 @@ let canvas (dim: Gctx.dimension) (f : Gctx.gctx -> unit)
 (*****************************************)
 (**              Checkbox                *)
 (*****************************************)
-(* TODO: Task 5 requires you to develop a checkbox widget *)
-
 
 (** A checkbox is a controller for a boolean value associated with a widget.
    Other widgets might store other data -- a slider might store an integer, for
@@ -247,21 +233,12 @@ let canvas (dim: Gctx.dimension) (f : Gctx.gctx -> unit)
    change_value). It also allows change listeners to be registered by the
    application. All of the added listeners are run whenever this value is 
    changed.
-
-   We will use this value_controller as part of the checkbox implementation, and
-   you are free to use it (if needed) for whatever widget you create in
-   Task 6.
 *)
 type 'a value_controller = {
   add_change_listener : ('a -> unit) -> unit;
   get_value           : unit -> 'a;
   change_value        : 'a -> unit
 }
-
-(** TODO: The first part of task 5 requires you to implement the following
-    generic function. This function takes a value of type 'a and returns a
-    value controller for it. Carefully consider what state needs to be
-    associated with any value controller. *)
 
 (** HOF helper *)
 let rec fold (combine: 'a -> 'b -> 'b) (base: 'b) (l: 'a list) : 'b =
@@ -281,17 +258,6 @@ let make_controller (v: 'a) : 'a value_controller =
              (fold (fun x acc -> x v; acc) () change_listeners.contents))
   }
   
-
-(** TODO: Don'forget to use the helper function you defined above
-   when implementing the checkbox function!
-
-   If your checkbox implementation does not work, do _not_ comment it
-   out, because your code will not compile upon submission. Instind,
-   you can replace the function body with
-
-      failwith "Checkbox: unimplemented"
-
-    before submitting your code. *)
 let checkbox (init: bool) (s: string) : widget * bool value_controller =
   let a = make_controller init in
   let b = 
@@ -315,10 +281,6 @@ let checkbox (init: bool) (s: string) : widget * bool value_controller =
 (*****************************************)
 (**          Additional widgets          *)
 (*****************************************)
-
-(* TODO: In Task 6 you may choose to add a radio_button widget, a
-   slider, or (after discussing your idea with course staff via
-   a private Piazza post) some other widget of your choice. *)
 
 (* Thickness Slider: This slider works by dragging the lower rectangle to the 
 left (for thinner lines) or right (for thicker lines). *)

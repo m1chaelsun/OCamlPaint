@@ -1,1 +1,3 @@
 # paint
+
+run paint.ml

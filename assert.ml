@@ -1,8 +1,5 @@
-(* You do not need to modify this file. *)
-
 open Printf
 open List
-
 
 
 (* When set to true, stop immediately on a failing test *)

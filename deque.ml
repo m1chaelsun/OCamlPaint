@@ -1,7 +1,5 @@
 (** Deque collection library *)
 
-(* You do not need to modify this file. *)
-
 (** A deque is like a queue but can add or remove elements
     on either end. This implementation of deques, based on
     lists, gets the job done. However, your implementation from

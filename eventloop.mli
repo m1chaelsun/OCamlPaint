@@ -1,8 +1,5 @@
 (** The main eventloop of the GUI library *)
 
-(* Do not modify this file. *)
-
-
 (**
    This function takes a widget, which is the "root" of the GUI interface.
    It creates the "top-level" Gctx, and then it goes into an infinite loopx.

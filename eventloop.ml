@@ -1,7 +1,5 @@
 (** The main eventloop of the GUI library *)
 
-(* Do not modify this file. *)
-
 module Graphics = G
 ;; open Gctx
 ;; open Widget
@@ -17,8 +15,7 @@ let string_of_status (s: Graphics.status) : string =
 (* This function is used by the eventloop to get the next event from the
    graphics library. The events reported by the library are not as informative
    as we would like, so this function also processes them into a more convenient
-   form.  You don't need to understand how this processing works, but you do
-   need to understand the various forms of events that this function generates.
+   form.
 
    See gctx.ml for more information about events.
 *)

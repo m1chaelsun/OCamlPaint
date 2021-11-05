@@ -1,7 +1,5 @@
 (* A modified version of the DEQUE interface *)
 
-(* Do not  modify this file. *)
-
 type 'a deque
 
 (* create a new container *)

@@ -137,13 +137,8 @@ let click55 = Gctx.make_test_event Gctx.MouseDown (5,5)
     let cw, nc = canvas (10,10) (fun g -> ()) in
     cw.size () = (14,14))
 
-(* Below, we provide some tests for the widgets that you are required to write
- * as part of this assignment. We will be grading your code against these
- * tests. *)
-
 ;; print_endline "--------- Task 1: vpair --------------------"			 
 (* [vpair] tests *)
-
 
 ;; run_test "vpair size" (fun () ->
     let w1 = space (10,20) in

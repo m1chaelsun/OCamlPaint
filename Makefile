@@ -32,10 +32,10 @@ DEPENDS := \
 	notifierdemo.mli \
 	notifierdemo.ml
 
-HWNAME := hw05
+NAME := OCamlPaint
 ts := $(shell /bin/date "+%Y-%m-%d-%H:%M:%S")
 
-ZIPNAME := $(HWNAME)-submit($(ts)).zip
+ZIPNAME := $(NAME)-submit($(ts)).zip
 
 .PHONY: all  clean zip
 

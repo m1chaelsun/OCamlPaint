@@ -1,5 +1,4 @@
-(* Lightbulb example using checkboxes.
-   This application will not work until you finish Task 5. *)
+(* Lightbulb example using checkboxes. *)
 ;; open Widget
 ;; open Gctx
 

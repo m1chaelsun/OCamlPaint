@@ -2,10 +2,6 @@
 
 module Graphics = G
 
-(* You do not need to modify this file. Instead, Task 0 requires you to    
-   implement functionality in gctx.ml to make the window that this file    
-   displays look like the one on the assignment website.                   *)
-
 let run () : unit =
 
   (* Open the graphics window and create a top-level graphics context. *)
